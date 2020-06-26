@@ -1,0 +1,40 @@
+Name     Comparador ;
+PartNo   00 ;
+Date     27/05/2020 ;
+Revision 01 ;
+Designer Engineer ;
+Company  jlrey ;
+Assembly None ;
+Location  ;
+Device   g22v10 ;
+
+/* *************** INPUT PINS *********************/
+PIN    1 = a0                        ; /*                                 */ 
+PIN    2 = a1                        ; /*                                 */ 
+PIN    3 = a2                        ; /*                                 */ 
+PIN    4 = a3                        ; /*                                 */ 
+PIN    5 = b0                        ; /*                                 */ 
+PIN    6 = b1                        ; /*                                 */ 
+PIN    7 = b2                        ; /*                                 */ 
+PIN    8 = b3                        ; /*                                 */ 
+
+/* *************** OUTPUT PINS *********************/
+PIN    14 = ig0                        ; /*                                 */ 
+PIN    15 = ig1                        ; /*                                 */ 
+PIN    16 = ig2                        ; /*                                 */ 
+PIN    21 = ig3                        ; /*                                 */ 
+
+PIN    18 = mayor                        ; /*                                 */ 
+PIN    19 = menor                        ; /*                                 */ 
+PIN    20 = igual                        ; /*                                 */ 
+
+ig0=!a0&!b0#a0&b0;
+ig1=!a1&!b1#a1&b1;
+ig2=!a2&!b2#a2&b2;
+ig3=!a3&!b3#a3&b3;
+
+mayor=a3&!b3#ig3&a2&!b2#ig3&ig2&a1&!b1#ig3&ig2&ig1&a0&!b0;
+menor=!a3&b3#ig3&!a2&b2#ig3&ig2&!a1&b1#ig3&ig2&ig1&!a0&b0;
+igual=ig3&ig2&ig1&ig0;
+
+
